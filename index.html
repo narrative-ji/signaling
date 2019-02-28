@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signaling</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+    </div>
+    <div data-key="83" class="key">
+    </div>
+    <div data-key="68" class="key">
+    </div>
+    <div data-key="70" class="key">
+    </div>
+    <div data-key="71" class="key">
+    </div>
+    <div data-key="72" class="key">
+    </div>
+    <div data-key="74" class="key">
+    </div>
+    <div data-key="75" class="key">
+    </div>
+    <div data-key="76" class="key">
+    </div>
+  </div>
+  <div class="keys">
+    <div data-key="90" class="key">
+    </div>
+    <div data-key="88" class="key">
+    </div>
+    <div data-key="67" class="key">
+    </div>
+    <div data-key="86" class="key">
+    </div>
+    <div data-key="66" class="key">
+    </div>
+    <div data-key="78" class="key">
+    </div>
+    <div data-key="77" class="key">
+    </div>
+  </div>
+
+  <div class="keys">
+    <div data-key="81" class="key">
+    </div>
+    <div data-key="87" class="key">
+    </div>
+    <div data-key="69" class="key">
+    </div>
+    <div data-key="82" class="key">
+    </div>
+    <div data-key="84" class="key">
+    </div>
+    <div data-key="89" class="key">
+    </div>
+    <div data-key="85" class="key">
+    </div>
+    <div data-key="76" class="key">
+    </div>
+    <div data-key="79" class="key">
+    </div>
+    <div data-key="80" class="key">
+    </div>
+  </div>
+
+  <div class="images">
+    <img src="assets/blu-dot-1.png" class="img">
+    <img src="assets/blu-dot-2.png" class="img">
+    <img src="assets/blu-line-1.png" class="img">
+    <img src="assets/blu-line-2.png" class="img">
+    <img src="assets/blu-line-3.png" class="img">
+    <img src="assets/blu-line-4.png" class="img">
+    <img src="assets/blu-line-5.png" class="img">
+    <img src="assets/blu-line-6.png" class="img">
+    <img src="assets/blu-line-7.png" class="img">
+    <img src="assets/blu-line-8.png" class="img">
+    <img src="assets/glitch-01.png" class="img">
+    <img src="assets/glitch-02.png" class="img">
+    <img src="assets/glitch-03.png" class="img multiply">
+    <img src="assets/glitch-04.png" class="img multiply">
+    <img src="assets/glitch-05.png" class="img multiply">
+    <img src="assets/glitch-06.png" class="img">
+    <img src="assets/glitch-07.png" class="img">
+    <img src="assets/glitch-08.png" class="img">
+    <img src="assets/glitch-09.png" class="img">
+    <img src="assets/glitch-10.png" class="img">
+    <img src="assets/green-dot-1.png" class="img">
+    <img src="assets/green-dot-2.png" class="img">
+    <img src="assets/purple-dot-1.png" class="img">
+    <img src="assets/purple-dot-1.png" class="img">
+    <img src="assets/red-line-1.png" class="img">
+    <img src="assets/red-line-2.png" class="img">
+    <img src="assets/red-line-3.png" class="img">
+    <img src="assets/red-line-4.png" class="img">
+    <img src="assets/red-line-5.png" class="img">
+  </div>
+
+  <div>
+    <audio data-key="65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/crickets.wav"></audio>
+    <audio data-key="68" src="sounds/deep-water.wav"></audio>
+    <audio data-key="70" src="sounds/dive-deep.mp3"></audio>
+    <audio data-key="71" src="sounds/diving-with-whales.wav"></audio>
+    <audio data-key="72" src="sounds/dolphins.wav"></audio>
+    <audio data-key="74" src="sounds/fish-in-aquarium.wav"></audio>
+    <audio data-key="75" src="sounds/frogs.wav"></audio>
+    <audio data-key="76" src="sounds/onomatopoeiakiss.wav"></audio>
+    <audio data-key="90" src="sounds/palomitas.wav"></audio>
+    <audio data-key="88" src="sounds/respiro-triste.wav"></audio>
+    <audio data-key="67" src="sounds/sand-pour-on-sand.aiff"></audio>
+    <audio data-key="86" src="sounds/sorpresa.wav"></audio>
+    <audio data-key="66" src="sounds/suspiro.wav"></audio>
+    <audio data-key="78" src="sounds/triangle.wav"></audio>
+    <audio data-key="77" src="sounds/unterwasser.wav"></audio>
+
+    <audio data-key="81" src="sounds/whale-sex.wav"></audio>
+    <audio data-key="87" src="sounds/heartbeat.wav"></audio>
+    <audio data-key="69" src="sounds/saturn.mp3"></audio>
+    <audio data-key="82" src="sounds/cicada.wav"></audio>
+    <audio data-key="84" src="sounds/bee.aiff"></audio>
+    <audio data-key="89" src="sounds/poneteeltraje.wav"></audio>
+    <audio data-key="85" src="sounds/rub-hands.aiff"></audio>
+    <audio data-key="76" src="sounds/plant-rustling.wav"></audio>
+    <audio data-key="79" src="sounds/wind.wav"></audio>
+    <audio data-key="80" src="sounds/gulps.wav"></audio>
+  </div>
+
+<script>
+  var zIndex = 1;
+
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+
+    var randomNumber = Math.floor(Math.random() * 29 ) + 1;
+    console.log(randomNumber)
+    // $(".img:nth-child(" + randomNumber + ")").addClass("img-active");
+    $(".img:nth-child(" + randomNumber + ")").fadeTo( 150 , 1, function() {
+     $(this).css('z-index', zIndex);
+     // $(this).delay(4000).fadeOut("fast"); 
+    });
+
+    if (zIndex < 29){
+      zIndex += 1;
+    } else {
+      zIndex = 1;
+    }
+    // randomImage.addClass('img-active')
+
+    // randomImage.fadeTo( "slow" , 1, function() {
+    //  $(this).css('z-index', zIndex);
+    // });
+    // zIndex += 1;
+  }
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+</script>
+
+
+</body>
+</html>
