@@ -1,9 +1,10 @@
 html {
   font-size: 10px;
-  background-color:black;
+  background-color: black;
   background-size: cover;
 }
-body,html {
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -18,7 +19,7 @@ body,html {
 }*/
 
 .key {
-/*  border: .4rem solid black;
+  /*  border: .4rem solid black;
   border-radius: .5rem;
   margin: 1rem;
   font-size: 1.5rem;
@@ -32,7 +33,7 @@ body,html {
 }
 
 .playing {
-/*  transform: scale(1.1);*/
+  /*  transform: scale(1.1);*/
   /*border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;*/
 }
@@ -45,10 +46,10 @@ body,html {
 .sound {
   font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   color: #ffc600;
 }
-.images{
+.images {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -56,11 +57,15 @@ body,html {
 .img {
   /*display:none;*/
   /*border: 5px solid red;*/
-  position: absolute;
-  top:0;
-  left:0;
+  position: fixed;
+  top: 0;
+  left: 0;
   opacity: 0;
   z-index: 0;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
 }
 .multiply {
   mix-blend-mode: multiply;
